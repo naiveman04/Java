@@ -1,19 +1,26 @@
-package Expt1; 
-import java.util.Scanner; 
+package Expt1;
+import java.util.Scanner;
 
-public class Factorial{ 
-	public static void main(String[] args) { 
+public class Factorial2 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
 		
-		Scanner sc = new Scanner(System.in); 
+		System.out.println("Enter the number you want to find the factorial of: ");
+		int number = sc.nextInt();
+		int factorial = 1;
 		
-		System.out.println("Enter number to find factorial: "); 
-		int number = sc.nextInt(); 
-		
-		double factorial = 1; 
-		for(int i = 1; i<=number; i++) { 
-			factorial *= i;
+		if(number <= 0) {
+			System.out.println("Invalid number to find a factorial of. Enter a positive number.");
 		}
-			
-		System.out.println("Factorial of given number is: " + factorial);
+		else {
+			for(int i = 1; i <= number; i++) {
+				factorial = factorial*i;
+			}
+			System.out.println("\nThe factorial of "+number+" is "+factorial+".");
+		}
+		
 	}
+
 }
