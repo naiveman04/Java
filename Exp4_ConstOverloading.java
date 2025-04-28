@@ -1,41 +1,38 @@
 package Expt4;
 
-public class ConstOverloading {
+public class ConstOverload2 {
+
+	int age;
+	String name;
 	
-	private String name;
-	private int age;
-	
-	// Constructor with no parameters
-	public ConstOverloading() {
-		this.name = "Mak";
-		this.age = 19;
+	public ConstOverload2() {
+		this.name = "Sahil";
+		this.age = 25;
 	}
 	
-	// Constructor with one parameter
-	public ConstOverloading(String name) {
+	public ConstOverload2(String name) {
 		this.name = name;
-		this.age = 19;
+		this.age = 25;
 	}
 	
-	// Constructor with two parameters
-	public ConstOverloading(String name, int age) {
+	public ConstOverload2(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
-
+	
 	public void display() {
-		System.out.println("Name: " + name + ", Age: " + age);
+		System.out.println("Name: " +name+ ", Age: " +age);
 	}
-
+	
 	public static void main(String[] args) {
 		
-		ConstOverloading person1 = new ConstOverloading();
-		ConstOverloading person2 = new ConstOverloading("Vedant");
-		ConstOverloading person3 = new ConstOverloading("Vedant", 20);
+		ConstOverload2 obj1 = new ConstOverload2();
+		ConstOverload2 obj2 = new ConstOverload2("Vedant");
+		ConstOverload2 obj3 = new ConstOverload2("Nikhil", 18);
 		
-		person1.display();
-		person2.display();
-		person3.display();
+		obj1.display();
+		obj2.display();
+		obj3.display();
 	}
+
 }
-		
