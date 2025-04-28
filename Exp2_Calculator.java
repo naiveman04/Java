@@ -1,70 +1,84 @@
-package Expt2; 
-import java.util.Scanner; 
+package Expt2;
+import java.util.Scanner;
 
-public class Calculator { 
+public class Calculator2 {
+
+	public void factorial(int num) {
+		long fact = 1;
+		
+		if(num <= 0) {
+			System.out.println("Factorial of negative numbers don't exist!");
+		}
+		else {
+			for(int i = 1; i <= num; i++) {
+				fact = i*fact;
+			}
+			System.out.println("Factorial: "+fact);
+		}
+	}
+	
 	public static void main(String[] args) {
+
+		int num1, num2, choice;
+		int count = 0;
+		Scanner sc = new Scanner(System.in);
+		Calculator2 calc = new Calculator2();
 		
-		int num1,num2,choice,ch; 
-		Scanner sc = new Scanner(System.in); 
+		System.out.println("This program will take in 2 numbers, and then give you a menu to perform operations on them.");
+		System.out.println("\nEnter the two numbers:");
 		
-		System.out.println("This program will take 2 integers and giive you list of operators to perform operations on.");
-		System.out.println("\nEnter the two integers: "); 
-		num1 = sc.nextInt(); 
-		num2 = sc.nextInt(); 
+		num1 = sc.nextInt();
+		num2 = sc.nextInt();
 		
 		do {
-			System.out.println("\nThe menu for operations is:\nl.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Factorial");
-			System.out.println("Enter your choice: "); 
-			choice = sc.nextInt(); 
+			if(count == 0) {
+				System.out.println("\nYou may choose from the following operations:\n1. Addition\n2. Subtraction\n3. Division\n4. Multiplication\n5. Factorial\n6. Exit Program");
+			}
+			else if(count > 0) {
+				System.out.println("\nAgain choose from the following operations:\n1. Addition\n2. Subtraction\n3. Division\n4. Multiplication\n5. Factorial\n6. Exit Program");
+			}
+			System.out.println("Enter your choice: ");
+			choice = sc.nextInt();
 			
 			switch(choice) {
 				
-			case 1: 
-				System.out.println("\nAddition operation."); 
-				System.out.println("Addition = "+ (num1+num2)); 
-				break; 
+			case 1:
+				System.out.println("Addition: " + (num1+num2));
+				break;
 				
 			case 2:
-				System.out.println("\nSubtraction operation.");
-				System.out.println("Subtraction "+ (num1-num2)); 
-				break; 
-				
+				System.out.println("Subtraction: " + (num1-num2));
+				break;
+
 			case 3:
-				System.out.println("\nMultiplication operation."); 
-				System.out.println("Multiplication = "+ (num1*num2)); 
-				break; 
-			
+				System.out.println("Division: " + ((double)num1/(double)num2));
+				break;
+
 			case 4:
-				System.out.println("\nDivision operation."); 
-				System.out.println("Division = "+ (num1/num2)); 
-				break; 
-			
+				System.out.println("Multiplication: " + (num1*num2));
+				break;
+
 			case 5:
-				System.out.println("\nFactorial operation."); 
-				System.out.println("Enter a number"); 
-				num1= sc.nextInt(); 
-				int i, fact = 1; 
-				
-				if(num1==0) {
-					System.out.println("Factorial = 1"); 
+				System.out.println("Which numbers factorial do you want:\n1. "+num1+"\n2. "+num2);
+				int ch = sc.nextInt();
+				if(ch == 1) {
+					calc.factorial(num1);
+				}
+				else if(ch == 2) {
+					calc.factorial(num2);
 				}
 				else {
-					for(i=1; i<=num1; i++) {
-						fact *= i;
-					}
-				}
+                    System.out.println("Invalid choice!");
+                }
+				break;
 				
-				System.out.println("Factorial = "+ fact); 
-				break; 
-			
-			default: 
-				System.out.println("Invalid choice."); 
+			default:
+				System.out.println("Enter a valid choice!");
 			}
-			System.out.println("\nIf you want to stop enter 0,else enter any another digit."); 
-			ch = sc.nextInt(); 
+			count++;
 		}
-		
-		while(ch!=0); 
-		System.out.println("Program stopped.");
+		while(choice != 6);
+		System.out.println("\nProgram stopped.");
 	}
+
 }
