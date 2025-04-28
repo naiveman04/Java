@@ -4,14 +4,19 @@ import java .util.Arrays;
 
 class araySort {
 	
-	String arr[] = new String[3]; 
+	int nos;
+	String arr[];
 	Scanner sc = new Scanner(System.in);
 
 	void create() {
-		System.out.println("The array is created");
+		System.out.println("Enter the number of strings you want sorted: ");
+		nos = sc.nextInt();
+		sc.nextLine(); // Clear the leftover newline
+		arr = new String[nos]; 
 	}
 
 	void initialize() {
+		System.out.println("Enter the strings inside the array: ");
 		for(int i=0;i<arr.length;i++) { 
 			arr[i]=sc.nextLine();
 		}
@@ -45,6 +50,7 @@ public class StringSort {
 		araySort a=new araySort(); 
 		a.create();
 		a.initialize();
+		System.out.println("So your string array is: ");
 		a.display();
 		a.arrsort();
 	}
